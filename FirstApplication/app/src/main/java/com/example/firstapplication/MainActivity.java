@@ -21,16 +21,13 @@ public class MainActivity extends AppCompatActivity {
         btn = findViewById(R.id.button);
         txtView = findViewById(R.id.textView);
         edtTxt = findViewById(R.id.enterKg);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // return type of getText function is 'Editable'. That is why we have to convert it 1'st into String.
-                String s = edtTxt.getText().toString();
-                int kg = Integer.parseInt(s);
-                double pound = 2.205 * kg;
-                txtView.setText("Weight in pound is : " + pound);
-//                Toast.makeText(MainActivity.this, "Hi! Click listner worked.", Toast.LENGTH_SHORT).show();
-            }
-        });
+    }
+    public void convertToPound(View view){
+//      return type of getText function is 'Editable'. That is why we have to convert it 1'st into String.
+        String s = edtTxt.getText().toString();
+        float kg = Float.parseFloat(s);
+        double pound = 2.205 * kg;
+        txtView.setText("Weight in pound is : " + pound);
+//      Toast.makeText(MainActivity.this, "Hi! Click listner worked.", Toast.LENGTH_SHORT).show();
     }
 }
