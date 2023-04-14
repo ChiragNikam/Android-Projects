@@ -24,10 +24,14 @@ public class MainActivity extends AppCompatActivity {
     }
     public void convertToPound(View view){
 //      return type of getText function is 'Editable'. That is why we have to convert it 1'st into String.
-        String s = edtTxt.getText().toString();
-        float kg = Float.parseFloat(s);
-        double pound = 2.205 * kg;
-        txtView.setText("Weight in pound is : " + pound);
-//      Toast.makeText(MainActivity.this, "Hi! Click listner worked.", Toast.LENGTH_SHORT).show();
+        try{    // Handling exception if user click's CONVERT button without entering the value.
+            String s = edtTxt.getText().toString();
+            float kg = Float.parseFloat(s);
+            double pound = 2.205 * kg;
+            txtView.setText("Weight in pound is : " + pound);
+        }
+        catch (Exception e){
+            Toast.makeText(this, "Enter a value to convert. || Exception Occured!!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
